@@ -54,7 +54,7 @@ const Courses = () => {
         {/* Filters & Search Bar */}
           <div className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-between bg-bg-base p-6 shadow-sm border-t-4 border-primary">
           <div className="flex flex-wrap gap-2 md:gap-4">
-            {['All', 'IGCSE', 'AS & A-level'].map((level) => (
+            {['All', 'IGCSE', 'AS & A-level', 'Web Development'].map((level) => (
               <button
                 key={level}
                 onClick={() => setActiveLevel(level)}

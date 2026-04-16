@@ -40,6 +40,51 @@ const generateCourses = () => {
     });
   });
 
+  // Adding Dedicated Web Development Courses
+  const webDevCourses = [
+    {
+      title: 'Full Stack Web Development (MERN Mastery)',
+      duration: '6 Months',
+      fees: 599,
+      schedule: { time: '6:00 PM - 9:00 PM', days: ['Mon', 'Wed', 'Fri'] },
+      instructor: 'Engr. Alex Rivera',
+      description: 'Master the full stack with MongoDB, Express, React, and Node.js. Build production-ready applications.',
+      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80',
+      ramadanOffer: true
+    },
+    {
+      title: 'Frontend Architecture with React & Next.js',
+      duration: '4 Months',
+      fees: 399,
+      schedule: { time: '4:00 PM - 6:00 PM', days: ['Tue', 'Thu'] },
+      instructor: 'Sarah Jenkins',
+      description: 'Advanced frontend engineering patterns, performance optimization, and server-side rendering with Next.js.',
+      image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800&q=80',
+      ramadanOffer: false
+    },
+    {
+      title: 'Backend Systems & API Design (Node.js)',
+      duration: '4 Months',
+      fees: 349,
+      schedule: { time: '7:00 PM - 9:00 PM', days: ['Sat', 'Sun'] },
+      instructor: 'David Chen',
+      description: 'Deep dive into server-side development, database modeling, and scalable API architecture.',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80',
+      ramadanOffer: true
+    },
+    {
+      title: 'UI/UX Design for Web Developers',
+      duration: '3 Months',
+      fees: 249,
+      schedule: { time: '10:00 AM - 12:00 PM', days: ['Mon', 'Fri'] },
+      instructor: 'Maria Garcia',
+      description: 'Bridge the gap between design and development. Learn Figma, accessibility, and modern design principles.',
+      image: 'https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=800&q=80',
+      ramadanOffer: false
+    }
+  ];
+
+  courses.push(...webDevCourses);
   return courses;
 };
 
@@ -78,7 +123,7 @@ const autoSeed = async () => {
   try {
     const courseCount = await Course.countDocuments();
     // Re-seed if count is low (for the upgrade) or 0
-    if (courseCount < 10) {
+    if (courseCount < 100) {
       console.log('Oxford AQA Style Upgrade: Seeding enriched data...');
       await Course.deleteMany();
       await Student.deleteMany();
