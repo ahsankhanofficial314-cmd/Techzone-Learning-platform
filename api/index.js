@@ -1,16 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const connectDB = require('./config/db');
-const autoSeed = require('./autoSeed');
+const connectDB = require('../config/db');
+const autoSeed = require('../autoSeed');
 
 // Load env vars
 dotenv.config();
 
 // Route files
-const auth = require('./routes/auth');
-const courses = require('./routes/courses');
-const students = require('./routes/students');
+const auth = require('../routes/auth');
+const courses = require('../routes/courses');
+const students = require('../routes/students');
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(express.json());
 
 // Enable CORS with options
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || '*',
+  origin: process.env.frontend_URL || '*',
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));

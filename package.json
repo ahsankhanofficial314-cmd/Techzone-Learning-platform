@@ -1,10 +1,43 @@
 {
-  "name": "techzone-platform-root",
+  "name": "techzone-platform",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npx concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
-    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "build": "cd frontend && npm install && npm run build"
+    "dev": "npx concurrently \"nodemon api/index.js\" \"vite\"",
+    "build": "vite build",
+    "start": "node api/index.js",
+    "install-all": "npm install",
+    "seed": "node seeder.js"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "axios": "^1.15.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "framer-motion": "^12.38.0",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^1.8.0",
+    "mongodb-memory-server": "^11.0.1",
+    "mongoose": "^9.4.1",
+    "nodemailer": "^8.0.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.14.1",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "nodemon": "^3.1.14",
+    "vite": "^8.0.4"
   }
 }

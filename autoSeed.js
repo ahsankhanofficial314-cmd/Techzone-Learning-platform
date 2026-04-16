@@ -122,13 +122,10 @@ const admin = {
 const autoSeed = async () => {
   try {
     const courseCount = await Course.countDocuments();
-    // Re-seed if count is low (for the upgrade) or 0
-    if (courseCount < 100) {
-      console.log('Oxford AQA Style Upgrade: Seeding enriched data...');
-      await Course.deleteMany();
-      await Student.deleteMany();
-      await User.deleteMany();
-
+    // Only seed if the database is empty. No more deleting existing data!
+    if (courseCount === 0) {
+      console.log('Oxford AQA Style Upgrade: Seeding initial data...');
+      
       const courses = generateCourses();
       await Course.create(courses);
       await Student.create(students);
