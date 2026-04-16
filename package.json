@@ -1,0 +1,9 @@
+{
+  "name": "techzone-platform-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd \"vibe coding/backend\" && npm install && cd \"../frontend\" && npm install",
+    "build": "cd \"vibe coding/frontend\" && npm install && npm run build"
+  }
+}

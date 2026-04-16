@@ -33,8 +33,11 @@ app.use('/api/auth', auth);
 app.use('/api/courses', courses);
 app.use('/api/students', students);
 
+// Health check and root verification
+app.get('/api/health', (req, res) => res.status(200).json({ status: 'Healthy', version: '1.1.0' }));
+
 app.get('/', (req, res) => {
-  res.send('TechZone Learning API is running...');
+  res.send('TechZone Learning API is running successfully...');
 });
 
 const PORT = process.env.PORT || 5000;
