@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--color-primary-current);
+  --color-secondary: var(--color-secondary-current);
+  --color-accent: #f39200;
+  
+  --color-bg-base: var(--color-bg-base-current);
+  --color-bg-alt: var(--color-bg-alt-current);
+  --color-text-main: var(--color-text-main-current);
+  --color-text-muted: var(--color-text-muted-current);
+  
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  --color-primary-current: #002147;
+  --color-secondary-current: #00778b;
+  --color-bg-base-current: #ffffff;
+  --color-bg-alt-current: #f5f8fa;
+  --color-text-main-current: #001529;
+  --color-text-muted-current: #4b5563;
+}
+
+body.dark-mode {
+  --color-primary-current: #00778b;
+  --color-secondary-current: #00a3ad;
+  --color-bg-base-current: #001529;
+  --color-bg-alt-current: #002147;
+  --color-text-main-current: #f5f8fa;
+  --color-text-muted-current: #94a3b8;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-base-current);
+    color: var(--color-text-main-current);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition-property: background-color, color;
+    transition-duration: 300ms;
+  }
+}
+
+@utility glass {
+  background-color: color-mix(in srgb, var(--color-bg-base-current) 80%, transparent);
+  backdrop-filter: blur(12px);
+  border-width: 1px;
+  border-color: color-mix(in srgb, var(--color-text-main-current) 10%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+@utility section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@utility academic-card {
+  background-color: var(--color-bg-base-current);
+  border-left-width: 4px;
+  border-left-color: var(--color-primary-current);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s, background-color 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
