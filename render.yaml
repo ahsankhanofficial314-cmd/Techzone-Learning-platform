@@ -1,0 +1,40 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: techzone-backend
+    env: node
+    region: ohio
+    plan: free
+    rootDir: vibe coding/backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - fromGroup: techzone-secrets
+
+  # Frontend Static Site
+  - type: static
+    name: techzone-frontend
+    region: ohio
+    plan: free
+    rootDir: vibe coding/frontend
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://techzone-backend.onrender.com/api
+
+envVarGroups:
+  - name: techzone-secrets
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false

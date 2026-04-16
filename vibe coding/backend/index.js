@@ -7,12 +7,6 @@ const autoSeed = require('./autoSeed');
 // Load env vars
 dotenv.config();
 
-const jwt = require('jsonwebtoken');
-const token = jwt.sign({ id: 1 },
-  process.env.JWT_SECRET)
-// Connect to database and seed memory
-connectDB().then(() => autoSeed());
-
 // Route files
 const auth = require('./routes/auth');
 const courses = require('./routes/courses');
@@ -23,8 +17,16 @@ const app = express();
 // Body parser
 app.use(express.json());
 
-// Enable CORS
-app.use(cors());
+// Enable CORS with options
+const corsOptions = {
+  origin: process.env.frontend_URL || '*',
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+// Connect to database and seed data
+connectDB().then(() => autoSeed());
+
 
 // Mount routers
 app.use('/api/auth', auth);
