@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "vibe coding/backend/index.js",
+      "src": "backend/index.js",
       "use": "@vercel/node"
     },
     {
-      "src": "vibe coding/frontend/package.json",
+      "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
@@ -16,7 +16,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "vibe coding/backend/index.js"
+      "destination": "backend/index.js"
     },
     {
       "source": "/(.*)",

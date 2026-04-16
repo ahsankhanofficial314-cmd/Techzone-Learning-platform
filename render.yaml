@@ -5,7 +5,7 @@ services:
     env: node
     region: ohio
     plan: free
-    rootDir: vibe coding/backend
+    rootDir: backend
     buildCommand: npm install
     startCommand: node index.js
     envVars:
@@ -20,7 +20,7 @@ services:
     name: techzone-frontend
     region: ohio
     plan: free
-    rootDir: vibe coding/frontend
+    rootDir: frontend
     buildCommand: npm install && npm run build
     publishDir: dist
     envVars:
