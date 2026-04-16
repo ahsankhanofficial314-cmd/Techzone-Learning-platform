@@ -19,7 +19,7 @@ app.use(express.json());
 
 // Enable CORS with options
 const corsOptions = {
-  origin: process.env.frontend_URL || '*',
+  origin: process.env.FRONTEND_URL || '*',
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));

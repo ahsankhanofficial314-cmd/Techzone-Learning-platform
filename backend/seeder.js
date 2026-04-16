@@ -12,7 +12,7 @@ const User = require('./models/User.js');
 
 
 // Connect to DB
-mongoose.connect('mongodb://localhost:27017/techzone_learning', {});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/techzone_learning', {});
 
 const courses = [
   {
