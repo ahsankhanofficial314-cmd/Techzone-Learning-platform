@@ -49,7 +49,7 @@ const generateCourses = () => {
       schedule: { time: '6:00 PM - 9:00 PM', days: ['Mon', 'Wed', 'Fri'] },
       instructor: 'Engr. Alex Rivera',
       description: 'Master the full stack with MongoDB, Express, React, and Node.js. Build production-ready applications.',
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80',
+      image: '/images/webdev-mern.png',
       ramadanOffer: true
     },
     {
